@@ -10,7 +10,9 @@ ratioanalysis <- function(pred, real) {
   COD <- (sum(abs(Ratio - median(Ratio)))/length(Ratio))/median(Ratio)
   COV <- sd(Ratio) / mean(Ratio)
   PRD <- mean(Ratio) / weightedMean
-  return_values <- c("Weighted Mean", weightedMean, "COD", COD, "COV", COV, "PRD", PRD)
+  return_value_names <- c("Weighted Mean", "COD", "COV", "PRD")
+  return_values <- c(weightedMean, COD, COV, PRD)
+  names(return_values) <- return_value_names
   return(return_values)
 }
 
